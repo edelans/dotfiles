@@ -14,6 +14,7 @@ Abstract here :
 
 For example, let's say you want to manage the configuration for Bash, VIM and Uzbl. Bash has a couple files in the top-level directory; VIM typically has your .vimrc file on the top-level and a .vim directory; and Uzbl has files in ${XDG_CONFIG_HOME}/uzbl and ${XDG_DATA_HOME}/uzbl. So, your home directory looks like this:
 
+```
 home/
     brandon/
         .config/
@@ -29,8 +30,10 @@ home/
         .bash_profile
         .bash_logout
         .vimrc
+```
 You would then create a dotfiles subdirectory and move all the files there:
 
+```
 home/
     /brandon/
         .config/
@@ -53,12 +56,15 @@ home/
                 .vim/
                     [...some files]
                 .vimrc
+```
 Then, perform the following commands:
 
+```
 $ cd ~/dotfiles
 $ stow bash
 $ stow uzbl
 $ stow vim
+```
 
 And, voila, all your config files (well, symbolic links to them) are all in the correct place, however disorganized that might be, while the actual files are all neatly organized in your dotfiles directory, which is easily turned into a VCS repo. 
 
