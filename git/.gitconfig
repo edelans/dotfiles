@@ -1,0 +1,29 @@
+[user]
+	email = edelans@gmail.com
+	name = edelans
+
+[alias]
+        st = status
+        up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+        pu = push
+        co = checkout
+        br = checkout -b
+        ap = add -p
+        cm = commit -m
+        am = commit --amend
+	undo = reset HEAD~1 --mixed        
+	fuck = !git stash && git reset --hard
+        lg = log --graph --oneline --decorate --pretty=format:'%C(yellow)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        conf = config --global -e
+        bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+        bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+
+[push]
+	default = simple
+
+
+[rerere]
+	enabled = true
+[diff]
+	tool = meld
+	guitool = meld
